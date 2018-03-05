@@ -1,3 +1,4 @@
+
 <template>
   <div id="app">
     <h1 class="pageTitle">{{ msg }}</h1>
@@ -8,8 +9,7 @@
         <button class="machListe btn btn-info col-sm-offset-2 col-sm-3">Liste de Machines</button>
         <button class="btn btn-info col-sm-offset-1 col-sm-3">Voir la carte</button>
       </div>
-      <list></list>
-      <carte></carte>
+      <machinelist></machinelist>
       <!--<div  class="machines">-->
       <!--</div>-->
     </div>
@@ -17,8 +17,12 @@
 </template>
 
 <script>
+    import Machinelist from "./MachinesList.vue";
+    import MachineMap from "./MachinesMap"
+
 export default {
-  name: 'app',
+    components: {Machinelist},
+    name: 'app',
   data () {
     return {
       msg: 'Machine Park',
