@@ -6,28 +6,38 @@
     <h1>Que voulez vous faire?</h1>
     <div class="container">
       <div class="row">
-        <button class="machListe btn btn-info col-sm-offset-2 col-sm-3">Liste de Machines</button>
-        <button class="btn btn-info col-sm-offset-1 col-sm-3">Voir la carte</button>
+        <button @click="listMachines" class="machListe btn btn-info col-sm-offset-2 col-sm-3">Liste de Machines</button>
+        <button @click="mapMachines" class="btn btn-info col-sm-offset-1 col-sm-3">Voir la carte</button>
       </div>
       <machinelist></machinelist>
-      <!--<div  class="machines">-->
-      <!--</div>-->
+      <machinemap></machinemap>
     </div>
   </div>
 </template>
 
 <script>
-    import Machinelist from "./MachinesList.vue";
-    import MachineMap from "./MachinesMap"
+    import Machinelist from "./MachinesList.vue"
+    import Machinemap from "./MachinesMap.vue";
 
 export default {
-    components: {Machinelist},
+    components: {
+        Machinemap,
+        Machinelist},
     name: 'app',
   data () {
     return {
       msg: 'Machine Park',
     }
-  }
+  },
+  methods: {
+      listMachines: function(){
+
+          alert("consulter la liste des machines"); //afficher un message lorsqu'on click sur le bouton "liste machines"
+    },
+      mapMachines: function(){
+      alert("consulter la carte"); //afficher un message lorsqu'on click sur le bouton "carte"
+    }
+    }
 }
 </script>
 

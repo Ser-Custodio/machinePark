@@ -1,5 +1,5 @@
 <template>
-    <h1>{{ msg }}</h1>
+    <h1 class="mapsmach">{{ msg }}</h1>
 </template>
 
 <script>
@@ -9,9 +9,12 @@
             return {
                 msg: 'Carte des Machines',
             }
+        }
     }
 </script>
 
 <style scoped>
-
+    .mapsmach{
+        display: none;
+    }
 </style>

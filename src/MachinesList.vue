@@ -1,5 +1,5 @@
 <template>
-    <h1>{{ msg }}</h1>
+    <h1 class="listmach">{{ msg }}</h1>
 </template>
 
 <script>
@@ -14,5 +14,7 @@
 </script>
 
 <style scoped>
-
+.listmach{
+    display: none;
+}
 </style>
