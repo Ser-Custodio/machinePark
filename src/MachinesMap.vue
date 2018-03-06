@@ -14,7 +14,5 @@
 </script>
 
 <style scoped>
-    .mapsmach{
-        display: none;
-    }
+
 </style>

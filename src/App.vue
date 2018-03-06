@@ -1,4 +1,3 @@
-
 <template>
   <div id="app">
     <h1 class="pageTitle">{{ msg }}</h1>
@@ -6,11 +5,11 @@
     <h1>Que voulez vous faire?</h1>
     <div class="container">
       <div class="row">
-        <button @click="listMachines" class="machListe btn btn-info col-sm-offset-2 col-sm-3">Liste de Machines</button>
-        <button @click="mapMachines" class="btn btn-info col-sm-offset-1 col-sm-3">Voir la carte</button>
+          <router-link to="/list"><button class="machListe btn btn-info col-sm-offset-2 col-sm-3">Liste de Machines</button></router-link>
+          <router-link to="/map"><button class="btn btn-info col-sm-offset-1 col-sm-3">Voir la carte</button></router-link>
       </div>
-      <machinelist></machinelist>
-      <machinemap></machinemap>
+        <!--<router-link to="/list"></router-link>-->
+          <router-view></router-view>
     </div>
   </div>
 </template>
@@ -18,11 +17,13 @@
 <script>
     import Machinelist from "./MachinesList.vue"
     import Machinemap from "./MachinesMap.vue";
+    import Machine from "./Machine.vue";
 
 export default {
-    components: {
-        Machinemap,
-        Machinelist},
+     components: {
+         Machinemap,
+         Machinelist,
+         Machine},
     name: 'app',
   data () {
     return {
