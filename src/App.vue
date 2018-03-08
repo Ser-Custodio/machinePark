@@ -9,7 +9,7 @@
           <router-link to="/map"><button class="btn btn-info col-sm-offset-1 col-sm-3">Voir la carte</button></router-link>
       </div>
         <!--<router-link to="/list"></router-link>-->
-          <router-view></router-view>
+          <router-view :machines="machines" :errors="errors" :loading="loading"></router-view>
     </div>
   </div>
 </template>
@@ -18,6 +18,7 @@
     import Machinelist from "./MachinesList.vue"
     import Machinemap from "./MachinesMap.vue";
     import Machine from "./Machine.vue";
+    import axios from 'axios';
 
 export default {
      components: {
@@ -28,17 +29,21 @@ export default {
   data () {
     return {
       msg: 'Machine Park',
+      machines: [],
+      errors: [],
+      loading: true,
     }
   },
-  methods: {
-      listMachines: function(){
-
-          alert("consulter la liste des machines"); //afficher un message lorsqu'on click sur le bouton "liste machines"
-    },
-      mapMachines: function(){
-      alert("consulter la carte"); //afficher un message lorsqu'on click sur le bouton "carte"
-    }
-    }
+  created(){
+    axios.get('https://machine-api-campus.herokuapp.com/api/machines').then(response => {
+      this.machines = response.data;
+      this.loading = false;
+    })
+      .catch(e =>{
+        this.loading = false;
+        this.errors.push(e)
+      })
+  }
 }
 </script>
 

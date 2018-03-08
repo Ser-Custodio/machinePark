@@ -1,24 +1,19 @@
 <template>
     <div>
-        <h1>Machine {{ name }}</h1>
-        <h3 class="green" v-if=" status === 'true'">Status OK</h3>
+        <h1>Machine {{ machine.name }}</h1>
+        <h3 class="green" v-if="machine.status === 'true'">Status OK</h3>
         <h3 class="red" v-else>Status KO</h3>
-        <h5><b>Last time checked:</b> {{ checkedAt.toLocaleString() }}</h5>
+        <h5><b>Last time checked:</b> {{ machine.checkedAt }}</h5>
     </div>
 </template>
 
 <script>
     export default {
         name: "machine",
-        props:['name','status','checkedAt'],
+        props:['machine'],
         data() {
             return {
-                // quelque chose
-        //     }
-        // },
-        // methods:{
-        //     dateform: function (date){
-        //         return date.toLocaleString('fr-FR',{timeZone: 'UTC'});
+
            }
          }
     }
