@@ -4,6 +4,7 @@ import VueRouter from 'vue-router'
 import machinelist from './MachinesList.vue'
 import machinemap from './MachinesMap.vue'
 import machine from './Machine.vue'
+
 import * as VueGoogleMaps from 'vue2-google-maps'
 Vue.use(VueGoogleMaps, {
   load: {
