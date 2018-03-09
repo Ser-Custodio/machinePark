@@ -6,7 +6,7 @@
     <machine v-if="infoMachine" :machine="infoMachine"></machine>
     <gmap-map class="mapsMach"
               v-show="!loading && !errors.length"
-              :center="{lat:45.1885, lng:5.7245}"
+              :center="{lat: geoloca.latitude, lng: geoloca.longitude}"
               :zoom="13">
       <gmap-marker v-for="machine in machines"
                    :key="machine.id"
@@ -15,6 +15,7 @@
                    @click="affiche(machine)">
       </gmap-marker>
     </gmap-map>
+
   </div>
 </template>
 
@@ -27,14 +28,26 @@
     data() {
       return {
         msg: 'Carte des Machines',
-        infoMachine: ''
+        infoMachine: '',
+        geoloca: '',
       }
     },
     methods:{
       affiche: function(objectMachine){
         this.infoMachine = objectMachine;
+      },
+    },
+    mounted: function() {
+      if(navigator.geolocation){
+        let self = this;
+        navigator.geolocation.getCurrentPosition(function(position){
+          self.position = position.coords;
+          self.geoloca = self.position;
+          console.log(self.geoloca)
+          //let geo = self.position;
+        })
       }
-    }
+    },
   }
 </script>
 

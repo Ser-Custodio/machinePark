@@ -4,6 +4,7 @@ import VueRouter from 'vue-router'
 import machinelist from './MachinesList.vue'
 import machinemap from './MachinesMap.vue'
 import machine from './Machine.vue'
+import formulaire from './formulaire'
 
 import * as VueGoogleMaps from 'vue2-google-maps'
 Vue.use(VueGoogleMaps, {
@@ -26,6 +27,7 @@ const routes = [
     { path: '/list' , component: machinelist },
     { path: '/map' , component: machinemap },
     { path: '/list', component: machine},
+  {path: '/createMachine', component: formulaire}
     ]
 
 const router = new VueRouter({

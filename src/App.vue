@@ -5,12 +5,14 @@
     <h1>Que voulez vous faire?</h1>
     <div class="container">
       <div class="row">
-          <router-link to="/list"><button class="machListe btn btn-info col-sm-offset-2 col-sm-3">Liste de Machines</button></router-link>
-          <router-link to="/map"><button class="btn btn-info col-sm-offset-1 col-sm-3">Voir la carte</button></router-link>
+          <router-link to="/list"><button class="machListe btn btn-info col-sm-offset-2 col-sm-2">Liste de Machines</button></router-link>
+          <router-link to="/map"><button class="btn btn-info col-sm-offset-1 col-sm-2">Voir la carte</button></router-link>
+          <router-link to="/createMachine"><button class="btn btn-info col-sm-offset-1 col-sm-2">Create Machine</button></router-link>
       </div>
         <!--<router-link to="/list"></router-link>-->
           <router-view :machines="machines" :errors="errors" :loading="loading"></router-view>
     </div>
+
   </div>
 </template>
 
@@ -32,6 +34,7 @@ export default {
       machines: [],
       errors: [],
       loading: true,
+
     }
   },
   created(){
@@ -43,7 +46,9 @@ export default {
         this.loading = false;
         this.errors.push(e)
       })
-  }
+  },
+
+
 }
 </script>
 
